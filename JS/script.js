@@ -22,8 +22,14 @@
     /* usuwanie zadania*/
     const removeTask = (taskIndex) => {
         tasks.splice(taskIndex, 1);
-                render();
-    }
+        render();
+    };
+
+    /* przekreślenie zadania - wpisuje przeciwnieństwo done*/
+    const toogleTaskDone = (taskIndex) => {
+        tasks[taskIndex].done = !tasks[taskIndex].done;
+        render();
+    };
 
     /* nadpisanie formularza w HTML */
     const render = () => {
@@ -34,7 +40,7 @@
             <li
                 ${task.done ? " style=\"text-decoration: line-through\"" : ""}
                 >
-                
+                <button class="js-done">zrobione?</button>
                 <button class="js-remove">usuń</button>
                 ${task.content}
             </li>
@@ -52,7 +58,17 @@
                 removeTask(index);
             });
         });
-    }
+
+        /*wyciąganie wszystkich przycisków zadań wykonanych */
+        const toogleDoneButtons = document.querySelectorAll(".js-done");
+
+        /* iteracja po każdym przycisku */
+        toogleDoneButtons.forEach((toggleDoneButton, index) => {
+            toggleDoneButton.addEventListener("click", () => {
+                toogleTaskDone(index);
+            });
+        });
+    };
 
     const onFormSubmit = (event) => {
             event.preventDefault();
