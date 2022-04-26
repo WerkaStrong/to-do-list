@@ -31,24 +31,7 @@
         render();
     };
 
-    /* nadpisanie formularza w HTML */
-    const render = () => {
-        let htmlString = "";
-
-        for (const task of tasks) {
-            htmlString += `
-            <li
-                ${task.done ? " style=\"text-decoration: line-through\"" : ""}
-                >
-                <button class="js-done">zrobione?</button>
-                <button class="js-remove">usuń</button>
-                ${task.content}
-            </li>
-            `;
-        }
-
-        document.querySelector(".js-tasks").innerHTML = htmlString;
-    
+    const bindEvents = () => {
         /*wyciąganie wszystkich przycisków usuwania */
         const removeButtons = document.querySelectorAll(".js-remove");
 
@@ -68,6 +51,27 @@
                 toogleTaskDone(index);
             });
         });
+    }
+
+    /* renderowanie - nadpisanie formularza w HTML */
+    const render = () => {
+        let htmlString = "";
+
+        for (const task of tasks) {
+            htmlString += `
+            <li
+                ${task.done ? " style=\"text-decoration: line-through\"" : ""}
+                >
+                <button class="js-done">zrobione?</button>
+                <button class="js-remove">usuń</button>
+                ${task.content}
+            </li>
+            `;
+        }
+
+        document.querySelector(".js-tasks").innerHTML = htmlString;
+    
+        bindEvents();
     };
 
     const onFormSubmit = (event) => {
