@@ -1,14 +1,5 @@
 {
-    const tasks = [
-        {
-            content: "zrobić zadanie",
-            done: false,
-        },
-        {
-            content: "obejrzeć lekcje",
-            done: true,
-        },
-    ];
+    const tasks = [];
 
     /* dodanie nowego zadania*/
     const addNewTask = (newTaskContent) => {
@@ -42,6 +33,9 @@
             });
         });
 
+
+
+
         /*wyciąganie wszystkich przycisków zadań wykonanych */
         const toogleDoneButtons = document.querySelectorAll(".js-done");
 
@@ -70,24 +64,34 @@
         }
 
         document.querySelector(".js-tasks").innerHTML = htmlString;
-    
+
         bindEvents();
     };
 
+
+    /* działanie formularza */
     const onFormSubmit = (event) => {
-            event.preventDefault();
+        event.preventDefault();
 
-            /* pobranie nowej wartości z usunięciem białych znaków z każdej strony*/
-            const newTaskContent = document.querySelector(".js-newTask").value.trim();
-            
-            /* brak wartości => wyjdz z funkcji*/
-            if(newTaskContent === ""){
-                return;
-            }
+        /* pobranie nowej wartości z usunięciem białych znaków z każdej strony*/
+        const newTaskContent = document.querySelector(".js-newTask").value.trim();
 
-            addNewTask(newTaskContent);
+        /* brak wartości => wyjdz z funkcji*/
+        if (newTaskContent === "") {
+            return;
+        }
+
+        addNewTask(newTaskContent);
+
+        const getFocus = () => {
+            document.getElementById("myText").focus();
+            myText.value = "";
+        };
+
+        getFocus();
 
     };
+
 
     const init = () => {
         render();
