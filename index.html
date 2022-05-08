@@ -5,11 +5,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css"
+        integrity="sha512-oHDEc8Xed4hiW6CxD7qjbnI+B07vDdX7hEPTvn9pSZO1bcRqHp8mj9pyr+8RVC2GmtEfI2Bi9Ke9Ass0as+zpg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script defer src="JS/script.js"></script>
-    <link rel="stylesheet" href="CSS/style.css" type="text.css" />
+    <link rel="stylesheet" href="CSS/style.css" type="text/css" />
+    <link rel="stylesheet" href="CSS/form.css" type="text/css" />
+    <link rel="stylesheet" href="CSS/element.css" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&display=swap" rel="stylesheet">
     <link rel="icon" href="CSS/images/logo_black.png">
 
-    <title>To do list</title>
+    <title>Lista zadan</title>
 
 </head>
 
@@ -17,22 +23,25 @@
     <main>
         <div class="container">
             <section class="listField">
-                <header class="listField__header">Lista zadań</header>
-                <form class="js-form">
+                <h1 class="listField__header">Lista zadań</h1>
+                <form class="js-form form">
                     <fieldset class="form__fieldset">
-                        <p class="form__paragraph">
+                        <h2 class="sectionName">Dodaj nowe zadanie</h2>
+                        <section class="form__paragraph">
                             <label>
-                                <h2>Dodaj nowe zadanie</h2>
+                                
                                 <input class="js-newTask" id="myText" placeholder="Co jest do zrobienia?" autofocus>
                             </label>
                             <button onclick="getFocus()">Dodaj zadanie</button>
-                        </p>
-                        <p class="form__paragraph">
-                            <h2 class="sectionName">Lista zadań</h2>
+                        </section>
+                        <h2 class="sectionName">Lista zadań</h2>
+                        <section class="form__paragraph">
+                            
                             <ul class="js-tasks"></ul>
-                        </p>
+                        </section>
                     </fieldset>
                 </form>
+            </section>
         </div>
     </main>
 

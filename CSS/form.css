@@ -1,0 +1,19 @@
+.form{
+    
+}
+
+.form__fieldset{
+    border: none;
+
+}
+
+.sectionName{
+    height: 100px; /* do usuniecia- zrobić w gridzie */
+    background-color:white;
+
+}
+
+.form__paragraph{
+    background-color: white;
+    
+}
