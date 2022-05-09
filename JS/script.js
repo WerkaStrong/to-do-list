@@ -74,24 +74,17 @@
         event.preventDefault();
 
         /* pobranie nowej wartości z usunięciem białych znaków z każdej strony*/
-        const newTaskContent = document.querySelector(".js-newTask").value.trim();
-
-        /* brak wartości => wyjdz z funkcji*/
-        if (newTaskContent === "") {
-            return;
+        const newTaskElement = document.querySelector(".js-newTask");
+        const newTaskContent = newTaskElement.value.trim();
+        
+        /* dodanie funckji focus do przycisku dodającego zadanie*/
+        if (newTaskContent !== "") {
+            addNewTask(newTaskContent);
+            newTaskElement.value = "";
         }
 
-        addNewTask(newTaskContent);
-
-        const getFocus = () => {
-            document.getElementById("myText").focus();
-            myText.value = "";
-        };
-
-        getFocus();
-
+        newTaskElement.focus();
     };
-
 
     const init = () => {
         render();
