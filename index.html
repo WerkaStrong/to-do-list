@@ -9,10 +9,10 @@
         integrity="sha512-oHDEc8Xed4hiW6CxD7qjbnI+B07vDdX7hEPTvn9pSZO1bcRqHp8mj9pyr+8RVC2GmtEfI2Bi9Ke9Ass0as+zpg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script defer src="JS/script.js"></script>
-    <link rel="stylesheet" href="CSS/style.css" type="text/css"/>
-    <link rel="stylesheet" href="CSS/form.css" type="text/css"/>
-    <link rel="stylesheet" href="CSS/element.css" type="text/css"/>
-    <link rel="stylesheet" href="CSS/button.css" type="text/css"/>
+    <link rel="stylesheet" href="CSS/style.css" type="text/css" />
+    <link rel="stylesheet" href="CSS/form.css" type="text/css" />
+    <link rel="stylesheet" href="CSS/container.css" type="text/css" />
+    <link rel="stylesheet" href="CSS/button.css" type="text/css" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&display=swap" rel="stylesheet">
     <link rel="icon" href="CSS/images/logo_black.png">
 
@@ -21,34 +21,22 @@
 </head>
 
 <body class="element">
-    <main>
-        <div class="container">
-            <section class="listField">
-                <h1 class="listField__header">Lista zadań</h1>
-                <form class="js-form form">
-                    <fieldset class="form__fieldset">
-                        <h2 class="sectionName">Dodaj nowe zadanie</h2>
-                        <section class="form__paragraph">
-                            <label>
-                                
-                                <input class="js-newTask" id="myText" placeholder="Co jest do zrobienia?" autofocus>
-                            </label>
-                            <button class="newTaskButton" onclick="getFocus()">Dodaj zadanie</button>
-                        </section>
-                        <h2 class="sectionName">Lista zadań</h2>
-                        <section class="form__paragraph">
-                            
-                            <ul class="js-tasks"></ul>
-                        </section>
-                    </fieldset>
-                </form>
+    <main class="container">
+        <h1 class="listField__header">Lista zadań</h1>
+        <form class="js-form form">
+            <section class="form__paragraph">
+                <h2 class="sectionName">Dodaj nowe zadanie</h2>
+                <div class="inputField">
+                    <input class="newTask js-newTask" id="myText" placeholder="Co jest do zrobienia?" autofocus>
+                    <button class="newTaskButton" onclick="getFocus()">Dodaj zadanie</button>
+                </div>
             </section>
-        </div>
+            <section class="form__paragraph">
+                <h2 class="sectionName">Lista zadań</h2>
+                <ul class="form__tasks js-tasks"></ul>
+            </section>
+        </form>
     </main>
-
-
-
-
 </body>
 
 </html>
