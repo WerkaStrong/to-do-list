@@ -1,5 +1,11 @@
 {
     const tasks = [];
+    const hideDoneTasks = false;
+
+    toggleHideDoneTasks = () => {
+        hideDoneTasks = !hideDoneTasks;
+        render();
+    };
 
     /* dodanie nowego zadania*/
     const addNewTask = (newTaskContent) => {
@@ -47,26 +53,15 @@
         });
     }
 
+    /* renderowanie zadań */
+    const renderTasks = () => {};
+
+    /* renderowanie przycisków */
+    const renderButtons = () => {};
+
+
     /* renderowanie - nadpisanie formularza w HTML */
-    const render = () => {
-        let htmlString = "";
-
-        for (const task of tasks) {
-            htmlString += `
-            <li class="taskInput">
-            <button class="tasks__button tasks__button--done js-done">${task.done ? "✔" : ""}</button>
-            <span ${task.done ? "style=\"text-decoration: line-through\"" : ""}>
-            ${task.content}
-            </span>
-                <button class="tasks__button tasks__button--remove js-remove"> 🗑 </button>
-            </li>
-            `;
-        }
-
-        document.querySelector(".js-tasks").innerHTML = htmlString;
-
-        bindEvents();
-    };
+    const render = () => {};
 
 
     /* działanie formularza */

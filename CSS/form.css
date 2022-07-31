@@ -2,7 +2,7 @@
     word-break: break-word;
 }
 
-.form__paragraph{
+.section{
     background-color: white;   
     margin: 10px 0;
     box-shadow: 2px #0000;
@@ -10,7 +10,7 @@
     
 }
 
-.form__sectionName{
+.section_header{
     background-color:white;
     border-bottom: 2px solid #eeee;
     padding: 20px;
@@ -23,18 +23,20 @@
     padding: 0px 20px 20px 20px;
 }
 
-.form__tasks{
-    list-style: none;
-    padding: 0px 10px 10px 10px;
+.tasks{
+    list-style-type: none;
+    margin: 0;
+    padding: 20px;
 }
 
-.form__tasksItem{
+.tasks__element{
+    list-style-type: none;
     display: grid;
     grid-template-columns: auto 1fr auto;
     grid-gap: 10px;
     padding: 10px;
     align-items: center;
-    border-bottom: 1px solid #eeee;
+    border-bottom: 1px solid #ddd;
 }
 
 .tasks__button{
