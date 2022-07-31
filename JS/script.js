@@ -1,6 +1,6 @@
 {
-    const tasks = [];
-    const hideDoneTasks = false;
+    let tasks = [];
+    let hideDoneTasks = false;
 
     toggleHideDoneTasks = () => {
         hideDoneTasks = !hideDoneTasks;
@@ -9,9 +9,10 @@
 
     /* dodanie nowego zadania*/
     const addNewTask = (newTaskContent) => {
-        tasks.push({
-            content: newTaskContent,
-        });
+        tasks = [
+            ...tasks,
+            { content: newTaskContent },
+        ];
 
         render();
     };
@@ -24,6 +25,7 @@
 
     /* przekreślenie zadania - wpisuje przeciwnieństwo done*/
     const toogleTaskDone = (taskIndex) => {
+       /* tasks = tasks.map */
         tasks[taskIndex].done = !tasks[taskIndex].done;
         render();
     };
@@ -54,14 +56,42 @@
     }
 
     /* renderowanie zadań */
-    const renderTasks = () => {};
+    const renderTasks = () => {
+        let htmlString = "";
 
-    /* renderowanie przycisków */
+        for (const task of tasks) {
+            htmlString += `
+            <li class="tasks__element js-task">
+                <button class="tasks__button tasks__button--done js-done">${task.done ? "✔" : "" }
+                </button>
+                <span ${task.done ? "style=\"text-decoration: line-through\"" : ""}>
+                ${task.content}
+                </span>
+                <button class="tasks__button tasks__button--remove js-remove"> 🗑 </button>
+              
+            </li>
+            `;
+        }
+
+        document.querySelector(".js-tasks").innerHTML = htmlString;
+
+        bindEvents();
+    };
+
+    /* renderowanie przycisków dodanie html*/
     const renderButtons = () => {};
+
+    /* even lisenery ktore dodamy do przyscików, jak nie bedzie przysciku ukoncz zadania bedzie potrzebny if */
+    const bindButtonsEvents = () => {};
 
 
     /* renderowanie - nadpisanie formularza w HTML */
-    const render = () => {};
+    const render = () => {
+        renderTasks();
+        renderButtons();
+
+        bindButtonsEvents();
+    };
 
 
     /* działanie formularza */
