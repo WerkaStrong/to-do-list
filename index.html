@@ -13,29 +13,40 @@
     <link rel="stylesheet" href="CSS/form.css" type="text/css" />
     <link rel="stylesheet" href="CSS/container.css" type="text/css" />
     <link rel="stylesheet" href="CSS/button.css" type="text/css" />
+    <link rel="stylesheet" href="CSS/button.css" type="text/css" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&display=swap" rel="stylesheet">
     <link rel="icon" href="CSS/images/logo_black.png">
 
-    <title>Lista zadan</title>
+    <title>Lista zadań</title>
 
 </head>
 
 <body class="element">
     <main class="container">
-        <h1 class="listField__header">Lista zadań</h1>
-        <form class="js-form form">
-            <section class="form__paragraph">
-                <h2 class="form__sectionName">Dodaj nowe zadanie</h2>
+        <header>
+            <h1 class="listField__header">Lista zadań</h1>
+        </header>
+        <section class="section">
+            <header>
+                <h2 class="section_header">Dodaj nowe zadanie</h2>
+            </header>
+            <form class="js-form form">
                 <div class="form__inputField">
-                    <input type="text"  class="newTask js-newTask" id="myText" placeholder="Co jest do zrobienia?" autofocus>
+                    <input type="text" class="newTask js-newTask" id="myText" placeholder="Co jest do zrobienia?"
+                        autofocus>
                     <button class="newTaskButton">Dodaj zadanie</button>
                 </div>
-            </section>
-            <section class="form__paragraph">
-                <h2 class="form__sectionName">Lista zadań</h2>
-                <ul class="form__tasks js-tasks"></ul>
-            </section>
-        </form>
+            </form>
+        </section>
+        <section class="section_task">
+            <header class="section_header">
+                <h2>Lista zadań</h2>
+                <button class="taskButton js-hideTaskButton">Ukryj zadanie</button>
+                <button class="taskButton js-completeTaskButton">Ukończ wszystkie</button>
+            </header>
+            <ul class="tasksInput js-tasks"></ul>
+        </section>
+
     </main>
 </body>
 
