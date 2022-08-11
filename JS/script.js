@@ -2,11 +2,7 @@
     let tasks = [];
     let hideDoneTasks = false;
 
-    toggleHideDoneTasks = () => {
-        hideDoneTasks = !hideDoneTasks;
-        render();
-    };
-
+    
     /* dodanie nowego zadania*/
     const addNewTask = (newTaskContent) => {
         tasks = [
@@ -39,74 +35,116 @@
         render();
     };
 
+    /* oznaczenie wszystkich zadań jako ukończone */
     const markAllTasksDone = () => {
         tasks = tasks.map((task) => ({
             ...task,
             done: true,
         }));
         render();
-    }
+    };
 
-    const bindEvents = () => {
+    /* przełączenie zadan z ukrytych na widoczne*/
+    toggleHideDoneTasks = () => {
+        hideDoneTasks = !hideDoneTasks;
+        render();
+    };
+
+
+    const bindRemoveEvents= () => {
         /*wyciąganie wszystkich przycisków usuwania */
         const removeButtons = document.querySelectorAll(".js-remove");
 
         /* iteracja po każdym przycisku */
-        removeButtons.forEach((removeButton, index) => {
+        removeButtons.forEach((removeButton, taskIndex) => {
             removeButton.addEventListener("click", () => {
-                removeTask(index);
+                removeTask(taskIndex);
             });
         });
+    };
 
 
 
-
+        const bindToggleDoneEvents = () => {
         /*wyciąganie wszystkich przycisków zadań wykonanych */
-        const toogleDoneButtons = document.querySelectorAll(".js-done");
+        const toogleDoneButtons = document.querySelectorAll(".js-toggleDone");
 
         /* iteracja po każdym przycisku */
-        toogleDoneButtons.forEach((toggleDoneButton, index) => {
+        toogleDoneButtons.forEach((toggleDoneButton, taskIndex) => {
             toggleDoneButton.addEventListener("click", () => {
-                toogleTaskDone(index);
+                toogleTaskDone(taskIndex);
             });
         });
-    }
+    };
 
     /* renderowanie zadań */
     const renderTasks = () => {
-        let htmlString = "";
-
-        for (const task of tasks) {
-            htmlString += `
-            <li class="tasks__element js-task">
-                <button class="tasks__button tasks__button--done js-done">${task.done ? "✔" : "" }
-                </button>
-                <span ${task.done ? "style=\"text-decoration: line-through\"" : ""}>
+        const taskToHTML = task => `
+            <li class="
+            tasks__item${task.done && hideDoneTasks ? " tasks__item--hidden" : ""} js-task
+            ">
+            <button class="tasks__button tasks__button--toggleDone js-toggleDone"> 
+            ${task.done ? "✔" : ""}
+            </button>
+                <span class="tasks__content${task.done ? " tasks__content--done" : ""}">
                 ${task.content}
                 </span>
-                <button class="tasks__button tasks__button--remove js-remove"> 🗑 </button>
-              
+            <button class="js-remove tasks__button tasks__button--remove">
+            🗑
+            </button>
             </li>
             `;
-        }
 
-        document.querySelector(".js-tasks").innerHTML = htmlString;
-
-        bindEvents();
+        const tasksElement = document.querySelector(".js-tasks");
+        tasksElement.innerHTML = tasks.map(taskToHTML).join("");
     };
+    
 
     /* renderowanie przycisków dodanie html*/
-    const renderButtons = () => {};
+    const renderButtons = () => {
+        const buttonsElement = document.querySelector(".js-buttons");
+
+        if (!tasks.length) {
+            buttonsElement.innerHTML = "";
+            return;
+        }
+
+        buttonsElement.innerHTML = `
+            <button class="buttons__button js-toggleHideDoneTasks">
+            ${hideDoneTasks ? "Pokaż" : "Ukryj"} ukończone
+            </button>
+            <button class="buttons__button js-markAllDone"
+            ${tasks.every(({ done }) => done) ? "disabled" : ""}>
+            Ukończ wszystkie
+            </button>
+            `;
+    };
 
     /* even lisenery ktore dodamy do przyscików, jak nie bedzie przysciku ukoncz zadania bedzie potrzebny if */
-    const bindButtonsEvents = () => {};
+    const bindButtonsEvents = () => {
+        const markAllDoneButtons = document.querySelector(".js-markAllDone");
+
+        if (markAllDoneButtons){
+            markAllDoneButtons.addEventListener("click", markAllTasksDone);
+        }
+
+        const toggleHideDoneTasksButton = document.querySelector(".js-toggleHideDoneTasks");
+    
+        if (toggleHideDoneTasksButton) {
+            toggleHideDoneTasksButton.addEventListener("click", toggleHideDoneTasks);
+        }
+    
+    };
 
 
     /* renderowanie - nadpisanie formularza w HTML */
     const render = () => {
         renderTasks();
-        renderButtons();
+        bindRemoveEvents();
+        bindToggleDoneEvents();
+        
 
+        renderButtons();
         bindButtonsEvents();
     };
 
