@@ -1,50 +1,10 @@
-.newTaskButton{
-    border: none;
-    background-color:hsl(180, 100%, 25%);
-    color: white;
-    padding: 10px;
-    transition: 1s;
-    
-}
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+ }
 
-.newTaskButton:hover{
-    background-color:hsl(180, 100%, 35%);
-    transform: scale(1.1);
-}
-
-.tasks__button{
-    border: none;
-    color:white;
-    width: 40px;
-    height: 40px ;
-    transition: 1s;
-}
-
-.section_header{
-    display: grid;
-    grid-template-columns:3fr 1fr 1fr;
-}
-
-.tasks__button--done{
-    background-color: hsl(120, 100%, 25%);
-}
-
-.tasks__button--done:hover{
-    background-color: hsl(120, 100%, 35%);
-    transform: scale(1.1);
-}
-
-.tasks__button--remove{
-    background-color: hsl(0, 100%, 50%);
-    font-size: 20px;
-}
-
-.tasks__button--remove:hover{
-    background-color: hsl(0, 100%, 60%);
-    transform: scale(1.1);
-}
-
-.taskButton{
+.buttons__button {
     background-color: white;
     border: none;
     color:teal;
@@ -52,5 +12,16 @@
     height: 50px ;
     transition: 1s;
     padding: 1%;
-    
+    cursor: pointer;
+}
+
+.buttons__button:disabled { 
+    color: #ccc;
+}
+
+@media(max-width: 767px) {
+    .buttons__button {
+        flex-basis: 100%;
+        margin: 10px;
+    }
 }
