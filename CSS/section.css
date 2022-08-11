@@ -31,6 +31,10 @@
     margin: 0;
 }
 
-.section__body {
+.section__list {
     padding: 0px 20px 20px 20px;
+}
+
+.section__body {
+    padding: 20px;
 }
