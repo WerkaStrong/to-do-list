@@ -11,7 +11,9 @@
     <script defer src="JS/script.js"></script>
     <link rel="stylesheet" href="CSS/style.css" type="text/css" />
     <link rel="stylesheet" href="CSS/form.css" type="text/css" />
+    <link rel="stylesheet" href="CSS/section.css" type="text/css" />
     <link rel="stylesheet" href="CSS/container.css" type="text/css" />
+    <link rel="stylesheet" href="CSS/tasks.css" type="text/css" />
     <link rel="stylesheet" href="CSS/button.css" type="text/css" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&display=swap" rel="stylesheet">
     <link rel="icon" href="CSS/images/logo_black.png">
@@ -23,28 +25,28 @@
 <body>
     <main class="container">
         <header>
-            <h1 class="listField__header">Lista zadań</h1>
+            <h1>Lista zadań</h1>
         </header>
         <section class="section">
-            <header>
-                <h2 class="section_header">Dodaj nowe zadanie</h2>
+            <header class="section__header">
+                <h2 class="section__title">Dodaj nowe zadanie</h2>
             </header>
-            <form class="js-form form">
-                <div class="form__inputField">
-                    <input type="text" class="newTask js-newTask" id="myText" placeholder="Co jest do zrobienia?"
+            <div class="section__body">
+            <form class="form js-form">
+                    <input type="text" class="form__input js-newTask" id="myText" placeholder="Co jest do zrobienia?"
                         autofocus>
-                    <button class="newTaskButton">Dodaj zadanie</button>
-                </div>
+                    <button class="form__button">Dodaj zadanie</button>
             </form>
         </section>
-        <section class="section_task">
-            <header class="section_header">
-                <h2>Lista zadań</h2>
+        <section class="section">
+            <header class="section__header">
+                <h2 class="section__title">Lista zadań</h2>
+                <div class="buttons js-buttons"></div>
             </header>
-            <ul class="tasks js-tasks"></ul>
-                <li class="tasks__element js-task"></li>
+            <div class="section__body">
+                <ul class="tasks js-tasks"></ul>
+            </div>
         </section>
-
     </main>
 </body>
 
