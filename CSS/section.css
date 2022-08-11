@@ -1,0 +1,36 @@
+.section{
+    background-color: white;   
+    margin: 10px 0;
+    box-shadow: 2px #0000;
+    display: block;
+    
+}
+.section {
+    background: white;
+    margin: 10px 0;
+    box-shadow: 0 0 5px #ddd;
+}
+
+.section__header {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+}
+
+@media(max-width: 767px) {
+    .section__header {
+        grid-template-columns: 1fr;
+    }
+}
+
+.section__title {
+    font-size: 20px;
+    padding: 20px;
+    margin: 0;
+}
+
+.section__body {
+    padding: 20px;
+}
