@@ -15,5 +15,4 @@ This is a simple "to do list". You can add your tasks to do, delete them or mark
   <li>GRID</li>
   <li>Media queries</li>
 </ul>
-
-![screenshot](/CSS/images/projekt_printscreen.PNG)
+)
