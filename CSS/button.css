@@ -15,6 +15,10 @@
     cursor: pointer;
 }
 
+.buttons__button:hover {
+    color: hsl(180, 100%, 35%);
+}
+
 .buttons__button:disabled { 
     color: #ccc;
 }
