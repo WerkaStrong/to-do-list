@@ -21,7 +21,6 @@
 
 .tasks__button--toggleDone:hover {
     background: hsl(120, 100%, 35%);
-    transform: scale(1.1);
 }
 
 .tasks__button--remove {
@@ -30,7 +29,6 @@
 
 .tasks__button--remove:hover {
     background: hsl(0, 100%, 60%);
-    transform: scale(1.1);
 }
 
 .tasks__item {
