@@ -83,15 +83,15 @@
             <li class="
             tasks__item${task.done && hideDoneTasks ? " tasks__item--hidden" : ""} js-task
             ">
-            <button class="tasks__button tasks__button--toggleDone js-toggleDone"> 
-            ${task.done ? "✔" : ""}
-            </button>
+                <button class="tasks__button tasks__button--toggleDone js-toggleDone"> 
+                    ${task.done ? "✔" : ""}
+                </button>
                 <span class="tasks__content${task.done ? " tasks__content--done" : ""}">
-                ${task.content}
+                    ${task.content}
                 </span>
-            <button class="js-remove tasks__button tasks__button--remove">
-            🗑
-            </button>
+                <button class="js-remove tasks__button tasks__button--remove">
+                    🗑
+                </button>
             </li>
             `;
 
@@ -111,11 +111,11 @@
 
         buttonsElement.innerHTML = `
             <button class="buttons__button js-toggleHideDoneTasks">
-            ${hideDoneTasks ? "Pokaż" : "Ukryj"} ukończone
+                ${hideDoneTasks ? "Pokaż" : "Ukryj"} ukończone
             </button>
             <button class="buttons__button js-markAllDone"
-            ${tasks.every(({ done }) => done) ? "disabled" : ""}>
-            Ukończ wszystkie
+                ${tasks.every(({ done }) => done) ? "disabled" : ""}>
+                Ukończ wszystkie
             </button>
             `;
     };
@@ -142,7 +142,6 @@
         renderTasks();
         bindRemoveEvents();
         bindToggleDoneEvents();
-        
 
         renderButtons();
         bindButtonsEvents();
